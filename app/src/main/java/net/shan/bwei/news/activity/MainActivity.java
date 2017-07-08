@@ -16,18 +16,11 @@ import org.xutils.x;
 
 @ContentView(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
-    @ViewInject(R.id.viewPager)
-    ViewPager mViewPager;
-    @ViewInject(R.id.tabLayout)
-    TabLayout mTabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
-        PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(adapter);
-        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        mTabLayout.setupWithViewPager(mViewPager);
 
     }
 
