@@ -30,9 +30,14 @@
         <activity
             android:name=".activity.LoginActivity"
             android:label="login"></activity>
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5126ff896c738f2bfa000438">
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Umeng">
+        </meta-data>
     </application>
 
 </manifest>

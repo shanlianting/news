@@ -1,1 +1,1 @@
-include ':app', ':slidingmenuibary'
+include ':app', ':umeng-library'
