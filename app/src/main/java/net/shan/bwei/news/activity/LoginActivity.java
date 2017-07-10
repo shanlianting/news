@@ -3,7 +3,9 @@ package net.shan.bwei.news.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -20,6 +22,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     ImageView weiboImageView;
     ImageView weixinImageView;
     ImageView qqImageView;
+    Button loginButton;
     private UmengHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         weixinImageView = (ImageView) findViewById(R.id.wx_login_imageView);
         weixinImageView.setOnClickListener(this);
         qqImageView = (ImageView) findViewById(R.id.qq_login_imageView);
+        loginButton = (Button) findViewById(R.id.email_sign_in_button);
+        loginButton.setOnClickListener(this);
         qqImageView.setOnClickListener(this);
         helper = new UmengHelper(this);
 
@@ -59,8 +64,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.qq_login_imageView:
                 helper.doAuth(SHARE_MEDIA.QQ);
                 break;
+            case R.id.email_sign_in_button:
+                changeMode();
+                break;
         }
 
+    }
+
+     void changeMode() {
+         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
 }
 

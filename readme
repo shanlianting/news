@@ -1,0 +1,26 @@
+
+
+public class PersonView extends AppCompatTextView {
+    public PersonView(Context context) {
+        super(context);
+    }
+
+    public PersonView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PersonAttr);
+        String name = typedArray.getString(R.styleable.PersonAttr_name);
+        int age = typedArray.getInt(R.styleable.PersonAttr_age,1);
+        setText(name+","+age);
+
+    }
+
+    public PersonView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+}
+
+//    void init(Context context) {
+//        LayoutInflater.from(context).inflate(R.layout.image_text_content, this, true);
+//        imageView = findViewById(R.id.imageView);
+//        textView = findViewById(R.id.textView);
+//    }
