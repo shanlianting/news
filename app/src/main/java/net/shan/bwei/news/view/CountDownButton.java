@@ -60,7 +60,6 @@ public class CountDownButton extends Button {
                 if (!mIsCounting) {
                     return;
                 }
-
                 mCount --;
                 if (mCount == 0) {
                     stopCountDown();

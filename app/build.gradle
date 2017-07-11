@@ -42,6 +42,11 @@ android {
     }
 
 }
+repositories{
+    flatDir{
+        dirs 'libs' //就是你放aar的目录地址
+    }
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -53,4 +58,6 @@ dependencies {
     compile 'org.xutils:xutils:3.5.0'
     testCompile 'junit:junit:4.12'
     compile project(':umeng-library')
+    compile name:'SMSSDK-3.0.0',ext:'aar'
+    compile name:'SMSSDKGUI-3.0.0',ext:'aar'
 }

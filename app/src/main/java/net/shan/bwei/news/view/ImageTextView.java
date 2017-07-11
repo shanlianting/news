@@ -36,6 +36,7 @@ public class ImageTextView  extends LinearLayout{
         LayoutInflater.from(context).inflate(R.layout.image_text_content, this, true);
         imageView = findViewById(R.id.imageView);
         textView = findViewById(R.id.textView);
+
         imageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

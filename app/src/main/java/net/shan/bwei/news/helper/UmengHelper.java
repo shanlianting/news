@@ -3,6 +3,7 @@ package net.shan.bwei.news.helper;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.umeng.socialize.UMAuthListener;
@@ -26,7 +27,7 @@ public class UmengHelper {
     }
 
     public void doAuth(SHARE_MEDIA platform) {
-        UMShareAPI.get(activity).deleteOauth(activity, platform, authListener);
+        UMShareAPI.get(activity).doOauthVerify(activity, platform, authListener);
 
     }
 
@@ -39,6 +40,7 @@ public class UmengHelper {
         @Override
         public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
              SocializeUtils.safeCloseDialog(dialog);
+            Log.d("UmengHelper",""+platform);
            Toast.makeText(activity, "成功了", Toast.LENGTH_LONG).show();
 
         }
@@ -46,13 +48,13 @@ public class UmengHelper {
         @Override
         public void onError(SHARE_MEDIA platform, int action, Throwable t) {
             SocializeUtils.safeCloseDialog(dialog);
-//            Toast.makeText(activity, "失败：" + t.getMessage(), Toast.LENGTH_LONG).show();
+          Toast.makeText(activity, "失败：" + t.getMessage(), Toast.LENGTH_LONG).show();
         }
 
         @Override
         public void onCancel(SHARE_MEDIA platform, int action) {
             SocializeUtils.safeCloseDialog(dialog);
-           // Toast.makeText(activity, "取消了", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "取消了", Toast.LENGTH_LONG).show();
         }
     };
 

@@ -67,7 +67,6 @@ public class CountView extends LinearLayout {
         });
 
         TypedArray typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.CountViewAttr);
-
         int addResource=typedArray.getResourceId(R.styleable.CountViewAttr_iconAdd,R.mipmap.ic_launcher);
         int minusResource = typedArray.getResourceId(R.styleable.CountViewAttr_iconMinus,R.mipmap.ic_launcher);
         addImageView.setImageResource(addResource);
@@ -76,4 +75,6 @@ public class CountView extends LinearLayout {
 
 
     }
+
+
 }
