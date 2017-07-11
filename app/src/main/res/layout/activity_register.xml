@@ -5,15 +5,36 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <CheckBox
+        android:id="@+id/change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+
     <net.shan.bwei.news.view.PersonView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:adult="false"
+        app:age="15"
         app:name="zhangsan"
-        app:age ="15"
-        app:adult="false"/>
+        />
+
     <net.shan.bwei.news.view.CountDownButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="get code"/>
+        android:text="get code" />
+
+    <net.shan.bwei.news.view.ImageTextView
+        android:id="@+id/imageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></net.shan.bwei.news.view.ImageTextView>
+
+
+    <net.shan.bwei.news.view.CountView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:iconAdd="@drawable/ic_qq_login_pressed_night"
+        app:iconMinus="@drawable/ic_qq_login_pressed">
+></net.shan.bwei.news.view.CountView>
 </LinearLayout>
