@@ -6,24 +6,29 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * Created by shanlianting on 2017/7/11.
+ * Created by shanlianting on 2017/7/12.
  */
 
 public class BallsView extends View {
-    int width;
-    int height;
+    public static final String TAG = "BallView";
+    private int width;
+    private int height;
     int radus = 40;
-    float x;
-    float y;
-    float downX;
-    float downY;
+
+    private double cicleX;
+    private double cicleY;
+
+    private double downX;
+    private double downY;
 
     public BallsView(Context context) {
         this(context, null);
+
     }
 
     public BallsView(Context context, @Nullable AttributeSet attrs) {
@@ -38,52 +43,59 @@ public class BallsView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
         width = this.getMeasuredWidth();
         height = this.getMeasuredHeight();
-        x = width / 2;
-        y = height / 2;
+        Log.d(TAG, "width = " + width + ",height =" + height);
+        cicleX = width / 2;
+        cicleY = height / 2;
     }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Paint paint = new Paint();
-        paint.setColor(Color.RED);
-        canvas.drawCircle(x, y, radus, paint);
+        paint.setColor(Color.BLUE);
+        canvas.drawCircle((float) cicleX, (float) cicleY, radus, paint);
 
     }
+    boolean isInball;
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+
                 downX = event.getX();
                 downY = event.getY();
-
+                isInball = isInBall(downX,downY);
+                Log.d(TAG, event.getX() + "," + event.getY() +", is in ball = ");
                 break;
-
             case MotionEvent.ACTION_MOVE:
-                if (isInBalls(downX,downY)){
-                    x= downX;
-                    y= downY;
+                if (isInball){
+                    cicleX = downX;
+                    cicleY = downY;
                     postInvalidate();
                 }
-                break;
-            case MotionEvent.ACTION_UP:
 
                 break;
-            
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+
+        return true;
+
+
+        //return super.onTouchEvent(event);
+    }
+
+
+    public boolean isInBall(double downX, double downY) {
+        double distance = Math.sqrt((downX - cicleX) * (downX - cicleX) + (downY - cicleY) * (downY - cicleY));
+        if (distance > radus) {
+            return false;
         }
         return true;
     }
-
-    public boolean isInBalls(float downX,float downY){
-        double distance = Math.sqrt((downX-x)*(downX-x)+(downY-y)*(downY-y));
-        if (distance<=radus){
-            return true;
-        }
-        return false;
-    }
-
-
 }

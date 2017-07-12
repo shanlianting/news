@@ -82,7 +82,6 @@ public class RegisterActivity extends AppCompatActivity{
                 registerPage.setRegisterCallback(new EventHandler() {
                     public void afterEvent(int event, int result, Object data) {
                         if (result == SMSSDK.RESULT_COMPLETE) {
-                            @SuppressWarnings("unchecked")
                             HashMap<String,Object> phoneMap = (HashMap<String, Object>) data;
                             String country = (String) phoneMap.get("country");
                             String phone = (String) phoneMap.get("phone");

@@ -43,6 +43,7 @@
         <activity
             android:name=".activity.RegisterActivity"
             android:label="register"></activity>
+        <activity android:name=".activity.TestActivity"></activity>
         <activity
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"

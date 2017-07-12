@@ -27,6 +27,7 @@ public class HomeActivity extends AppCompatActivity
     ViewPager mViewPager;
     @ViewInject(R.id.tabLayout)
     TabLayout mTabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,13 +100,14 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent intent = new Intent(this,LoginActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             HomeActivity.this.startActivity(intent);
         } else if (id == R.id.nav_gallery) {
-            Intent intent = new Intent(this,RegisterActivity.class);
+            Intent intent = new Intent(this, RegisterActivity.class);
             HomeActivity.this.startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
-
+            Intent intent = new Intent(this, TestActivity.class);
+            HomeActivity.this.startActivity(intent);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
