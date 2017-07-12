@@ -18,7 +18,7 @@ public class BallsView extends View {
     public static final String TAG = "BallView";
     private int width;
     private int height;
-    int radus = 40;
+    int radis = 40;
 
     private double cicleX;
     private double cicleY;
@@ -57,7 +57,7 @@ public class BallsView extends View {
         super.onDraw(canvas);
         Paint paint = new Paint();
         paint.setColor(Color.BLUE);
-        canvas.drawCircle((float) cicleX, (float) cicleY, radus, paint);
+        canvas.drawCircle((float) cicleX, (float) cicleY, radis, paint);
 
     }
     boolean isInball;
@@ -73,6 +73,10 @@ public class BallsView extends View {
                 Log.d(TAG, event.getX() + "," + event.getY() +", is in ball = ");
                 break;
             case MotionEvent.ACTION_MOVE:
+
+                downX = event.getX();
+                downY = event.getY();
+                isInball = isInBall(downX,downY);
                 if (isInball){
                     cicleX = downX;
                     cicleY = downY;
@@ -93,7 +97,7 @@ public class BallsView extends View {
 
     public boolean isInBall(double downX, double downY) {
         double distance = Math.sqrt((downX - cicleX) * (downX - cicleX) + (downY - cicleY) * (downY - cicleY));
-        if (distance > radus) {
+        if (distance > radis) {
             return false;
         }
         return true;
