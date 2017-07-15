@@ -41,6 +41,7 @@ public class UmengHelper {
         public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
              SocializeUtils.safeCloseDialog(dialog);
             Log.d("UmengHelper",""+platform);
+            //Log.d("UmengHelper",map.tos)
            Toast.makeText(activity, "成功了", Toast.LENGTH_LONG).show();
 
         }

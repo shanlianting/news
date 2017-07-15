@@ -1,1 +1,1 @@
-include ':app', ':umeng-library'
+include ':app', ':umeng-library', ':jpush-library'

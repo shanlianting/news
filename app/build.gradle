@@ -24,6 +24,7 @@ android {
             minifyEnabled true
             signingConfig signingConfigs.debug
             proguardFiles 'proguard-rules.pro'
+
         }
     }
 
